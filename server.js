@@ -85,6 +85,10 @@ const typeDefs = gql`
         medium_cover_image: String!
         large_cover_image: String!
     },
+    type test {
+        tag: String!
+        content: String!
+    },
 `;
 // ''이 아니라 ``사용
 // ``안에는 SDL (Schema Definition Language)
@@ -152,6 +156,7 @@ const resolvers = {
 // => return newTweet
 // postTweet~ 부분은 JS로 코딩을 한 것 다른 언어로 코딩할 경우 달라진다. but args 순서는 동일
 // delete 는 filter를 이용하여 삭제하려는 id 이외의 것들만 array로 필터링 하여 삭제하는 방식
+// fullName, author는 기존 데이터 베이스에 없는 것을 추가적으로 resolver에서 찾아서 출력
 
 
 const server = new ApolloServer({ typeDefs, resolvers });
